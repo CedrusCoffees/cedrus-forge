@@ -1,4 +1,4 @@
-import { calculateScore } from "@/lib/scoring";
+import { calculateScore, generateOpportunities } from "@/lib/scoring";
 
 export default function Dashboard() {
   const business = {
@@ -9,7 +9,7 @@ export default function Dashboard() {
   };
 
   const score = calculateScore(business);
-
+const opportunities = generateOpportunities(business); 
   return (
     <main>
       <h1>Cedrus Lead Engine</h1>
@@ -24,10 +24,12 @@ export default function Dashboard() {
         </p>
 
         <ul>
-          <li>No website</li>
-          <li>Weak Google presence</li>
-          <li>No online ordering</li>
-        </ul>
+  {opportunities.map((item) => (
+    <li key={item.title}>
+      {item.title} ({item.impact})
+    </li>
+  ))}
+</ul>
 
         <button>
           Generate Audit
