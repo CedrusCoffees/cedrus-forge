@@ -1,4 +1,15 @@
+import { calculateScore } from "@/lib/scoring";
+
 export default function Dashboard() {
+  const business = {
+    hasWebsite: false,
+    rating: 3.8,
+    reviews: 120,
+    hasWhatsapp: true,
+  };
+
+  const score = calculateScore(business);
+
   return (
     <main>
       <h1>Cedrus Lead Engine</h1>
@@ -9,7 +20,7 @@ export default function Dashboard() {
         <p>Location: Casablanca</p>
 
         <p>
-          Digital Score: 72/100
+          Digital Score: {score}/100
         </p>
 
         <ul>
