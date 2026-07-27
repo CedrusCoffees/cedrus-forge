@@ -1,0 +1,15 @@
+Scout
+   ↓
+Collect
+   ↓
+Analyze
+   ↓
+Prioritize
+   ↓
+Build
+   ↓
+Deploy
+   ↓
+Measure
+   ↓
+Learn
