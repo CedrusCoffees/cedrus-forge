@@ -1,21 +1,43 @@
-export type Business = {
-  id: string;
+export interface Business {
+  id: number;
   name: string;
   city: string;
-  hasWebsite: boolean;
-  rating: number;
-  reviews: number;
-  hasWhatsapp: boolean;
-};
+  website: boolean;
+  googleReviews: number;
+  googleRating: number;
+  instagram: boolean;
+  facebook: boolean;
+}
 
 export const businesses: Business[] = [
   {
-    id: "burger-atlas",
+    id: 1,
     name: "Burger Atlas",
     city: "Casablanca",
-    hasWebsite: false,
-    rating: 3.8,
-    reviews: 120,
-    hasWhatsapp: true,
+    website: false,
+    googleReviews: 54,
+    googleRating: 4.2,
+    instagram: true,
+    facebook: false,
+  },
+  {
+    id: 2,
+    name: "Coffee Medina",
+    city: "Rabat",
+    website: true,
+    googleReviews: 203,
+    googleRating: 4.8,
+    instagram: true,
+    facebook: true,
+  },
+  {
+    id: 3,
+    name: "Pizza Corner",
+    city: "Marrakech",
+    website: false,
+    googleReviews: 18,
+    googleRating: 3.9,
+    instagram: false,
+    facebook: false,
   },
 ];

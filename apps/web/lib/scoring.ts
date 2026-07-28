@@ -1,48 +1,52 @@
-export type Business = {
-  hasWebsite: boolean;
-  rating: number;
-  reviews: number;
-  hasWhatsapp: boolean;
-};
+import type { Business } from "./businesses";
 
 export function calculateScore(business: Business) {
   let score = 0;
 
-  if (business.hasWebsite) score += 25;
-  if (business.rating >= 4) score += 25;
-  if (business.reviews >= 100) score += 25;
-  if (business.hasWhatsapp) score += 25;
+  if (business.website) score += 20;
+  if (business.googleRating >= 4.5) score += 20;
+  if (business.googleReviews >= 100) score += 20;
+  if (business.instagram) score += 20;
+  if (business.facebook) score += 20;
 
   return score;
 }
+
 export function generateOpportunities(business: Business) {
   const opportunities = [];
 
-  if (!business.hasWebsite) {
+  if (!business.website) {
     opportunities.push({
-      title: "Create a website",
-      impact: "+25 points",
+      title: "Create a professional website",
+      impact: "+20 points",
     });
   }
 
-  if (business.rating < 4) {
+  if (business.googleRating < 4.5) {
     opportunities.push({
       title: "Improve Google rating",
-      impact: "+25 points",
+      impact: "+20 points",
     });
   }
 
-  if (business.reviews < 100) {
+  if (business.googleReviews < 100) {
     opportunities.push({
-      title: "Get more reviews",
-      impact: "+25 points",
+      title: "Get more Google reviews",
+      impact: "+20 points",
     });
   }
 
-  if (!business.hasWhatsapp) {
+  if (!business.instagram) {
     opportunities.push({
-      title: "Add WhatsApp ordering",
-      impact: "+25 points",
+      title: "Create an Instagram presence",
+      impact: "+20 points",
+    });
+  }
+
+  if (!business.facebook) {
+    opportunities.push({
+      title: "Create a Facebook page",
+      impact: "+20 points",
     });
   }
 
